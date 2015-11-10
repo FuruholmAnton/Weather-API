@@ -1,0 +1,19 @@
+@import "menus";
+@import "links";
+
+.nav{
+  display: flex;
+  justify-content: flex-end;
+  &-main{
+    
+  }
+  &-menu{
+    float: left;
+  }
+  &-search{
+  }
+  .icon-close{
+    display: block;
+  }
+}
+

@@ -1,0 +1,27 @@
+.container{
+  margin:{
+    left: auto;
+    right: auto;
+  }
+  max-width: 800px;
+  &--weather{
+    @extend .container;
+  }
+  &--600{
+    @extend .container;
+    max-width: 600px;
+  }
+  &--400{
+    @extend .container;
+    max-width: 400px;
+  }
+  &--half{
+    width: 50%;
+    // float: left;
+    // padding: 20px;
+    color: #fff;
+    &:nth-of-type(2n+1){
+      border-right: 3px solid #fff;
+    }
+  }
+}

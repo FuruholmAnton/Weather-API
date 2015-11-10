@@ -1,0 +1,16 @@
+%button{
+	padding: 12px 24px;
+	cursor: pointer;
+}
+
+
+button{
+	@extend %button;
+
+}
+input[type="button"]{
+	@extend %button;
+}
+input[type="submit"]{
+	@extend %button;
+}
