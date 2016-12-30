@@ -2,120 +2,92 @@
   background-color: #90CAF9;
   font-family: 'Roboto', sans-serif;
 }
-.weather-app{
 
+.weather-app{
+  margin-top: 20px;
+
+  @media screen and (min-width: 600px) {
+    margin-top: 60px;
+  }
 }
-#loadingCircle{
-  display: block;
-  margin: 0 auto;
-  width: 140px;
-}
-.container--weather{
-  margin-top: 60px;
-}
+
+
+
 .nav{
 
 }
-.search-bar{
-  display: flex;
-  justify-content: center;
 
-  &--content{
-    display: flex;
-    align-items: center;
-    background-color: #fff;
+
+.hero-icon--src{
+  width: 100px;
+  // animation-name:             rotate;
+  animation-duration:         100s;
+  animation-iteration-count:  infinite;
+  animation-timing-function: linear;
+  &:hover{
+
+    // must fix: on leave -> rotate to start
   }
-  &_input{
+  @media (min-width: 400px) {
     width: 200px;
-    border: none;
-    font-size: 16px;
-    font-weight: 100;
-    color: #444;
-    outline: none;
-    @media (min-width: 400px) {
-      width: 300px;
-    }
   }
-  .icon-search{
-    color: #ccc;
-    font-size: 35px;
-    margin: 0;
-    &:hover{
-      color: #333;
-    }
-  }
-
-}
-
-
-
-.hero{
-  &-icon{
-
-    &--src{
-      width: 100px;
-      // animation-name:             rotate; 
-      animation-duration:         100s; 
-      animation-iteration-count:  infinite;
-      animation-timing-function: linear;
-      &:hover{
-        
-        // must fix: on leave -> rotate to start
-      }
-      @media (min-width: 400px) {
-        width: 200px;
-      }
-      @media (min-width: 600px) {
-        width: 300px;
-      }
-  }
-  }
-  &-temp{
-    margin-top: 40px;
-    text-align: center;
-    color: #fff;
-    font-size: 40px;
-    font-weight: 100;
-    @media (min-width: 400px) {
-      font-size: 60px;
-    }
-    @media (min-width: 600px) {
-      font-size: 80px;
-    }
-  }
-  &-location{
-    text-align: center;
-    color: #fff;
-    font-weight: 100;
-  }
-  &-desc{
-    padding: 0 20px;
-    padding-bottom: 40px;
-    color: #fff;
-    
-    &:first-of-type{
-      text-align: right;
-    }
-    
-    h3{
-      font-size: 14px;
-
-      @media (min-width: 400px) {
-        font-size: 18px;
-      }
-    }
-    p{
-      font-weight: 300;
-      color: #fff;
-    }
+  @media (min-width: 600px) {
+    width: 300px;
   }
 }
 
-#nextDays{
+.hero-temp{
+  margin-top: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 100;
+  @media (min-width: 400px) {
+    font-size: 60px;
+  }
+  @media (min-width: 600px) {
+    font-size: 80px;
+  }
+}
+
+.hero-location{
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+}
+
+.hero-desc{
+  padding: 0 20px;
+  padding-bottom: 40px;
+  color: #fff;
+
+  &:first-of-type{
+    text-align: right;
+  }
+
+  h3{
+    font-size: 14px;
+
+    @media (min-width: 400px) {
+      font-size: 18px;
+    }
+  }
+  p{
+    font-weight: 300;
+    color: #fff;
+  }
+}
+
+.following-days_container{
   margin: 0 auto;
   max-width: 400px;
+
+  p {
+    color: #fff;
+  }
 }
-.next-days--inner{
+
+.following-days--inner{
   display: flex;
 
 }
@@ -126,45 +98,20 @@
   flex-wrap:wrap;
 }
 
-.day-icon{
-  width: 40px;
-  height: 40px;
-  float: left;
-}
-
-.weather-days{
-  // display: flex;
+.following-days_part {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  width: 50%;
+  color: #fff;
 
-  
-  
-  h4{
+  &:nth-of-type(2n+1){
+    border-right: 3px solid #fff;
   }
-  
-  p{
-    color: #fff;
+}
 
-  }
-  &--content{
-    
-  }
-  &--inner{
-    padding: 0 30px;
+.following-days_part {
 
-    position: relative;
-    &:after{
-      content: '';
-      width: 20px;
-      height: 20px;
-      border-top: 3px solid #fff;
-
-      position: absolute;
-      top: 50%;
-      left: 0;
-    }
-  }
   &:nth-of-type(2n+1){
     text-align: right;
     p{
@@ -173,7 +120,7 @@
     h2{
 
     }
-    .weather-days--inner:after{
+    .following-days_part--inner:after{
       left: initial;
       right: 0;
     }
@@ -191,11 +138,26 @@
   }
 }
 
+.following-days_part--inner {
+  padding: 0 30px;
+  position: relative;
+  &:after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid #fff;
 
-
-.credit{
-  margin-top: 100px;
-  text-align: center;
-  font-size: 12;
-  color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
 }
+
+.following-days_content{
+  padding: 0 30px;
+  position: relative;
+}
+
+
+
+

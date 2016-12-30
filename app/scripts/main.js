@@ -1,14 +1,8 @@
-'use strict';
 
 // Initiate global variables
 var weatherData,
     longitude,
     latitude;
-
-// Initiate Animations
-$(".weather-app").hide();
-$(".search-bar").hide();
-$(".nav .icon-close").hide();
 
 
 /*
@@ -47,6 +41,8 @@ function getWeather(longitude, latitude, location){
       dataType: 'jsonp'
     } )
     .done(function(data) {
+
+      console.log(data);
 
       weatherData = data;
 

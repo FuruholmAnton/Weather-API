@@ -4,9 +4,17 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Weather app</title>
+    <title>Weather</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicons/manifest.json">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="theme-color" content="#90caf9">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -17,7 +25,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -31,41 +39,45 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <nav class="nav">
-      <!-- <div class="nav-menu"><i class="material-icons icon-menu">menu</i></div> -->
-      <div class="nav-search"><i class="material-icons icon-search">search</i><i class="material-icons icon-close">close</i></div>
-    </nav>
-    <div class="search-bar">
-      <div class="search-bar--content">
-        <input name="formatted_address" class="search-bar_input" type="text" placeholder="City">
-        <i id="find" class="material-icons icon-search">search</i>
+
+    <section class="weather-app_container">
+
+      <nav class="nav">
+        <!-- <div class="nav-menu"><i class="material-icons icon-menu">menu</i></div> -->
+        <div class="nav-search"><i class="material-icons icon-search">search</i><i class="material-icons icon-close">close</i></div>
+      </nav>
+
+
+      <div class="search-bar">
+        <div class="search-bar--content">
+          <input name="formatted_address" class="search-bar_input" type="text" placeholder="City">
+          <i id="find" class="material-icons icon-search">search</i>
+        </div>
+
       </div>
-      
-    </div>
-    <section class="container--weather">
+
       <main class="weather-app">
+
+        <!-- Current day -->
         <div id="hero" class="hero"></div>
-        <div id="nextDays"></div>
-        <div class="credit container">Icons made by <a href="http://www.flaticon.com/authors/yannick" title="Yannick">Yannick</a>, <a href="http://www.flaticon.com/authors/vectorgraphit" title="Vectorgraphit">Vectorgraphit</a>, <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+
+        <!-- FOLLOWING DAYS -->
+        <div id="nextDays" class="following-days_container"></div>
+
       </main>
-      <img src="images/loading_circle.svg" alt="" id="loadingCircle"> 
+
+      <!-- Loading Circle Animation -->
+      <img src="images/loading_circle.svg" alt="" id="loadingCircle" class="loading-circle">
+
+      <!-- Error Container -->
       <div class="error-message"></div>
     </section>
-    
-    
-    <!-- Template for the next days -->
-    <script id="weatherDaysElement" type="text/template">
-      <div class="weather-days--inner">
-        <img class="day-icon" src="images/<%= icon %>.svg" alt="">
-       <h4><%= day %></h4>
-        <div class="weather-days--content align--right full-width">
-          <p><%= temp %> °C</p>
-        </div>
-      </div>
-    </script>
-    
-    <!-- Tempalate for This day -->
+
+    <!-- COPYRIGHTS -->
+    <footer class="credit">Icons made by <a href="http://www.flaticon.com/authors/yannick" title="Yannick">Yannick</a>, <a href="http://www.flaticon.com/authors/vectorgraphit" title="Vectorgraphit">Vectorgraphit</a>, <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></footer>
+
+
+    <!-- Tempalate for current day -->
     <script id="weatherHeroElement" type="text/template">
       <div class="hero-icon">
         <img class="hero-icon--src" src="images/<%= icon %>.svg" alt="">
@@ -84,6 +96,19 @@
       </div>
     </script>
 
+
+    <!-- Template for the next days -->
+    <script id="weatherDaysElement" type="text/template">
+      <div class="following-days_part--inner">
+        <img class="day-icon" src="images/<%= icon %>.svg" alt="">
+        <h4><%= day %></h4>
+        <div class="align--right full-width">
+          <p><%= temp %> °C</p>
+        </div>
+      </div>
+    </script>
+
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -91,7 +116,14 @@
     <script src="scripts/libs/backbone-min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
+    <script type="text/javascript">
+      // Initiate Animations
+      $(".weather-app").hide();
+      $(".search-bar").hide();
+      $(".nav .icon-close").hide();
+    </script>
+
     <!-- build:js scripts/main.js -->
     <script src="scripts/weather.model.js"></script>
     <script src="scripts/weather.view.js"></script>

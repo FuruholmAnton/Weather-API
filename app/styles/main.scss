@@ -1,7 +1,7 @@
 // bower:scss
 // endbower
-		 
-/*	
+
+/*
 *       /\
 *      /  \
 *     /    \
@@ -13,14 +13,22 @@
 *
 *
 */
-@import "vendors/vendors";
 @import "variables-site/variables-site";
 @import "helpers/helpers";
+
 @import "base/base";
-@import "typography/typography";
+@import "base/fonts";
+@import "base/typography";
+
+
 @import "modules/modules";
+@import "modules/search-bar";
+@import "modules/credit";
+@import "modules/error-message";
+@import "modules/loading-circle";
+
+
 @import "elements/elements";
 @import "layout/layout";
-@import "media/media";
 @import "pages/pages";
 @import "navigation/navigation";

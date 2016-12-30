@@ -1,11 +1,9 @@
 
-// Namespace our flowerApp
 var app = app || {};
 
 app.weatherView = Backbone.View.extend({
 
-  tagName: "div",
-  className: "container--half weather-days",
+  className: "following-days_part",
 
   template: _.template( $("#weatherDaysElement").html() ),
 

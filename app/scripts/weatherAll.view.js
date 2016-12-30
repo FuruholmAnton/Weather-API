@@ -4,7 +4,7 @@ var app = app || {};
 app.weatherAllView = Backbone.View.extend({
 
   tagName: "section",
-  className: "next-days--inner",
+  className: "following-days--inner",
 
   render: function() {
     this.collection.each(this.addWeather, this);
