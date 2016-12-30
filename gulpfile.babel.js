@@ -81,7 +81,8 @@ gulp.task('fonts', () => {
 gulp.task('extras', () => {
   return gulp.src([
     'app/*.*',
-    '!app/*.html'
+    '!app/*.html',
+    'app/favicons'
   ], {
     dot: true
   }).pipe(gulp.dest('docs'));
