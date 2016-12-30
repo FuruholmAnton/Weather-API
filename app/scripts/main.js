@@ -12,7 +12,7 @@ $(".nav .icon-close").hide();
 
 
 /*
-* Get the Current location or Open the search bar 
+* Get the Current location or Open the search bar
 *
 */
 (function getCurrentLocation() {
@@ -39,7 +39,7 @@ function showError(error) {
 *
 */
 function getWeather(longitude, latitude, location){
-  $.ajax( 
+  $.ajax(
     { url: "https://api.forecast.io/forecast/e550740d61115b913ad25f86b68f73be/" + latitude + "," + longitude + "?units=si",
       type: "GET",
       dataType: 'jsonp'
@@ -48,7 +48,7 @@ function getWeather(longitude, latitude, location){
 
       weatherData = data;
 
-      hero.set("temp", data.currently.temperature);
+      hero.set("temp", Math.round(data.currently.temperature));
       hero.set("icon", data.currently.icon);
       hero.set('location', location || "Current location");
       hero.set('summary', data.currently.summary);
@@ -56,7 +56,7 @@ function getWeather(longitude, latitude, location){
 
       day1.set('temp', data.daily.data[1].temperatureMax);
       day1.set('icon', data.daily.data[1].icon);
-      
+
       day2.set('temp', data.daily.data[2].temperatureMax);
       day2.set('icon', data.daily.data[2].icon);
 
@@ -77,7 +77,7 @@ function getWeather(longitude, latitude, location){
 *
 */
 function getLocation(location){
-  $.ajax( 
+  $.ajax(
     { url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyCACgmBbuERO1cuPFn4GfkzsvtPNKPwe10",
       type: "GET",
       dataType: 'json',
@@ -158,12 +158,12 @@ var hero = new weatherHero({
 });
 
 var weatherHeroView = new weatherHeroView({ model: hero });
-weatherHero.el;   
-$("#hero").html(weatherHeroView.el); 
+weatherHero.el;
+$("#hero").html(weatherHeroView.el);
 
 
 /*
-* Add events and functions for the Search 
+* Add events and functions for the Search
 *
 */
 $("#find").click(initNewLocation);
