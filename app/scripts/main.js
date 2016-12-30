@@ -22,11 +22,13 @@ $(".nav .icon-close").hide();
 
     }
 })();
+
 function showCurrentPosition(position) {
     longitude = position.coords.longitude;
     latitude = position.coords.latitude;
     getWeather(longitude,latitude);
 }
+
 function showError(error) {
   $("#loadingCircle").hide();
   openSearchBar();
